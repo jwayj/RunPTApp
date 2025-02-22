@@ -5,4 +5,8 @@
     <string name="title_activity_login">Login</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_signup1">Signup1</string>
+    <string name="title_activity_signup2">Signup2</string>
+    <string name="title_activity_signup3">Signup3</string>
+    <string name="title_activity_record_detail">RecordDetail</string>
 </resources>

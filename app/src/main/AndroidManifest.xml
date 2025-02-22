@@ -13,6 +13,30 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".RecordDetail"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_record_detail"
+            android:theme="@style/Theme.MyApplication.Fullscreen" />
+        <activity
+            android:name=".Signup3"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_signup3"
+            android:theme="@style/Theme.MyApplication.Fullscreen" />
+        <activity
+            android:name=".Signup2"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_signup2"
+            android:theme="@style/Theme.MyApplication.Fullscreen" />
+        <activity
+            android:name=".Signup1"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_signup1"
+            android:theme="@style/Theme.MyApplication.Fullscreen" />
+        <activity
             android:name=".Login"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
@@ -26,7 +50,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>

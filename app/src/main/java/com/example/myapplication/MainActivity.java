@@ -34,13 +34,13 @@ public class MainActivity extends FragmentActivity {
             int id = v.getId();
 
             if (id == R.id.ic_challenge_icon) {
-                //selectedFragment = new BadgeFragment();
+                selectedFragment = new BadgeFragment();
             } else if (id == R.id.nav_running_icon) {
                 selectedFragment = new RunningFragment();
             } else if (id == R.id.nav_record_icon) {
-                //selectedFragment = new RecordFragment();
+                selectedFragment = new RecordFragment();
             } else if (id == R.id.nav_mypage_icon) {
-                //selectedFragment = new MyPageFragment();
+                selectedFragment = new MyPageFragment();
             }
 
             if (selectedFragment != null) {

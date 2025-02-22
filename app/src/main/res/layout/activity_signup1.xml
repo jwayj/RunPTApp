@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원가입"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Select All Checkbox -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <CheckBox
+            android:id="@+id/check_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/box"
+            android:text="약관 전체 동의                                   "
+            android:textSize="16sp"
+            android:layout_marginStart="50dp" />
+    </LinearLayout>
+
+    <!-- Individual Checkboxes -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/check_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RunPT 이용약관"
+            android:textSize="14sp"
+            android:layout_marginStart="50dp" />
+
+        <CheckBox
+            android:id="@+id/check_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인정보 수집 및 이용동의"
+            android:textSize="14sp"
+            android:layout_marginStart="50dp" />
+
+        <CheckBox
+            android:id="@+id/check_location_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위치기반 서비스 이용약관"
+            android:textSize="14sp"
+            android:layout_marginStart="50dp" />
+    </LinearLayout>
+
+    <!-- Confirm Button -->
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/light_blue"
+        android:layout_marginTop="20dp" />
+</LinearLayout>
