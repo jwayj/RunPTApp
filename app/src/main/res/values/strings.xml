@@ -9,4 +9,7 @@
     <string name="title_activity_signup2">Signup2</string>
     <string name="title_activity_signup3">Signup3</string>
     <string name="title_activity_record_detail">RecordDetail</string>
+    <string name="title_activity_popup">Popup</string>
+    <string name="title_activity_search_popup">SearchPopup</string>
+    <string name="title_activity_map">Map</string>
 </resources>
