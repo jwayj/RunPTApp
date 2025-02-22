@@ -1,0 +1,89 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- 상단 바 -->
+        <View
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#7BCFFA"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- 뒤로 가기 버튼 -->
+
+        <!-- 주소 입력창 -->
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:contentDescription="뒤로 가기"
+            android:onClick="onBackPressed"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar"
+            app:layout_constraintVertical_bias="0.0"
+            app:tint="@android:color/white" />
+
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="주소를 입력하세요"
+            android:padding="12dp"
+            app:layout_constraintTop_toBottomOf="@id/top_bar"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- 주소 목록 -->
+        <TextView
+            android:id="@+id/address_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 강남구 테헤란로 123"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/search_input"
+            android:onClick="onAddressClick"/>
+
+        <TextView
+            android:id="@+id/address_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 마포구 홍대입구로 45"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/address_1"
+            android:onClick="onAddressClick"/>
+
+        <TextView
+            android:id="@+id/address_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 종로구 세종대로 77"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:background="@android:color/white"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/address_2"
+            android:onClick="onAddressClick"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

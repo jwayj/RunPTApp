@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/badge_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="내 배지"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingVertical="16dp" />
+
+    <!-- Badge Grid Section -->
+    <GridLayout
+        android:id="@+id/badge_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:columnCount="3"
+        android:paddingHorizontal="16dp">
+
+        <!-- Badge Items -->
+        <!-- Repeat this block for each badge -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/badge_image_2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_3"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_9"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_10"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_11"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/badge_image_12"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/badgeex" />
+
+            <TextView
+                android:id="@+id/badge_text_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+
+    </GridLayout>
+
+</FrameLayout>

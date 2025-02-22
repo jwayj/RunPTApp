@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- 상단 바 (하늘색 배경) -->
+        <View
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#7BCFFA"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <!-- 로고 (왼쪽) -->
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/logo"
+            android:contentDescription="앱 로고"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar"
+            android:layout_marginStart="16dp"/>
+
+        <!-- 닫기 버튼 (오른쪽 X 아이콘) -->
+        <ImageView
+            android:id="@+id/close_button"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_close"
+            android:contentDescription="닫기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/top_bar"
+            app:layout_constraintBottom_toBottomOf="@id/top_bar"
+            android:layout_marginEnd="16dp"
+            android:onClick="closePopup"/>
+
+        <!-- 출발지 입력 -->
+        <TextView
+            android:id="@+id/label_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="출발지"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editStart"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="출발지를 입력하세요"
+            android:padding="12dp"
+            android:focusable="false"
+            android:onClick="openSearchPopup"
+            app:layout_constraintTop_toBottomOf="@id/label_start"
+            android:layout_marginTop="8dp"/>
+
+        <!-- 도착지 입력 -->
+        <TextView
+            android:id="@+id/label_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="도착지"
+            android:textSize="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editStart"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editDestination"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="도착지를 입력하세요"
+            android:padding="12dp"
+            android:focusable="false"
+            android:onClick="openSearchPopup"
+            app:layout_constraintTop_toBottomOf="@id/label_destination"
+            android:layout_marginTop="8dp"/>
+
+        <!-- 거리 입력 -->
+        <TextView
+            android:id="@+id/label_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="거리(km)"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editDestination"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/editDistance"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_bg"
+            android:hint="거리(km)를 입력하세요"
+            android:padding="12dp"
+            android:inputType="numberDecimal"
+            app:layout_constraintTop_toBottomOf="@id/label_distance"
+            android:layout_marginTop="8dp"/>
+
+        <!-- 경사도 선택 -->
+        <TextView
+            android:id="@+id/label_incline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경사도"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editDistance"
+            android:layout_marginTop="16dp"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroupIncline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/label_incline"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/radioLow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="낮음"/>
+            <RadioButton
+                android:id="@+id/radioMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통"/>
+            <RadioButton
+                android:id="@+id/radioHigh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="높음"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSearchRoute"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="경로 탐색 시작"
+            android:textSize="20sp"
+            android:backgroundTint="#7BCFFA"
+            android:textColor="@android:color/black"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupIncline"
+            android:layout_marginTop="20dp"
+            android:onClick="onSearchRouteClicked" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

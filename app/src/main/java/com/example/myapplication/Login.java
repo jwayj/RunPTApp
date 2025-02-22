@@ -32,11 +32,11 @@ public class Login extends AppCompatActivity {
         });
 
 
-//        // 회원가입 버튼
-//        sign = findViewById(R.id.signupbutton);
-//        sign.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, Signup1.class);
-//            startActivity(intent);
-//        });
+        // 회원가입 버튼
+        sign = findViewById(R.id.signupbutton);
+        sign.setOnClickListener(v -> {
+            Intent intent = new Intent(this, Signup1.class);
+            startActivity(intent);
+        });
     }
 }
