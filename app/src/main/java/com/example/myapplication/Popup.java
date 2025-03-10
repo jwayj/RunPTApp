@@ -71,9 +71,20 @@ public class Popup extends AppCompatActivity {
     }
 
     public void onSearchRouteClicked(View view) {
-        // MapActivity로 이동하는 Intent
+        // 현재 팝업에서 입력된 데이터를 가져옵니다.
+        String start = editStart.getText().toString();
+        String destination = editDestination.getText().toString();
+        String distance = editDistance.getText().toString();
+
+        // 경로 탐색을 위해 필요한 데이터를 Intent에 담습니다.
         Intent intent = new Intent(Popup.this, Map.class);
-        startActivity(intent);  // MapActivity로 전환
+        intent.putExtra("start", start);
+        intent.putExtra("destination", destination);
+        intent.putExtra("distance", distance);
+
+        // 팝업을 닫고 MapActivity로 이동합니다.
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     // 주소 선택 후 결과 처리
