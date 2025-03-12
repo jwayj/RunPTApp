@@ -9,6 +9,18 @@ import android.widget.ProgressBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.graphhopper.GHRequest;
+import com.graphhopper.GHResponse;
+import com.graphhopper.GraphHopper;
+import com.graphhopper.ResponsePath;
+import com.graphhopper.config.CHProfile;
+import com.graphhopper.config.LMProfile;
+import com.graphhopper.config.Profile;
+import com.graphhopper.util.shapes.GHPoint;
+
+
+import java.util.Locale; // Locale 클래스는 Java 표준 라이브러리에서 제공
+
 public class MainActivity extends FragmentActivity {
 
     private ProgressBar progressBar; // 로딩화면을 위한 ProgressBar
@@ -19,13 +31,6 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         progressBar = findViewById(R.id.progressBar); // ProgressBar 초기화
-
-        // 항상 RunningFragment를 표시
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new RunningFragment())
-                    .commit();
-        }
 
         setupBottomNavigation();
 
@@ -81,13 +86,32 @@ public class MainActivity extends FragmentActivity {
         // 경로 생성 로직을 여기서 구현합니다.
         new Thread(() -> {
             try {
-                // 예: 경로 생성 알고리즘 실행 또는 서버 요청
-                Thread.sleep(3000); // 경로 생성 시뮬레이션 (3초 대기)
+                // GraphHopper 인스턴스 생성
+                GraphHopper hopper = createGraphHopperInstance();
+
+                // 시작점과 도착점의 좌표를 설정합니다.
+                // 예: 서울 시청
+                double startLat = 37.566535;
+                double startLon = 126.977969;
+                double endLat = 37.551254;
+                double endLon = 126.988224;
+
+                // 경로 생성
+                ResponsePath path = routing(hopper, new GHPoint(startLat, startLon), new GHPoint(endLat, endLon));
+
+                if (path != null) {
+                    System.out.println("경로 거리: " + path.getDistance() + " 미터");
+                    // 경로 데이터를 처리합니다.
+                    // 예: 경로를 화면에 표시하거나 저장합니다.
+                }
+
+                // GraphHopper 인스턴스 종료
+                hopper.close();
 
                 runOnUiThread(() -> {
                     displayRoute(); // 경로 생성 완료 후 호출
                 });
-            } catch (InterruptedException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
@@ -108,5 +132,51 @@ public class MainActivity extends FragmentActivity {
                 .replace(R.id.fragment_container, runningFragment)
                 .commit();
     }
+
+    private GraphHopper createGraphHopperInstance() {
+        // GraphHopper 인스턴스 생성 및 설정
+        GraphHopper hopper = new GraphHopper();
+        hopper.setOSMFile(getExternalFilesDir(null) + "/south-korea-latest.osm.pbf");
+        hopper.setGraphHopperLocation(getExternalFilesDir(null) + "/routing-graph-cache");
+
+        // 필요한 모든 Encoded Values 추가
+        hopper.setEncodedValuesString("foot_access, foot_average_speed, road_class, max_speed");
+
+        // CustomModel 설정
+        // ...
+
+        // Profile 설정
+        Profile footProfile = new Profile("foot")
+                .setWeighting("custom");
+        hopper.setProfiles(footProfile);
+
+        // CH 및 LM 설정
+        hopper.getCHPreparationHandler().setCHProfiles(new CHProfile("foot"));
+        hopper.getLMPreparationHandler().setLMProfiles(new LMProfile("foot"));
+
+        hopper.importOrLoad();
+        return hopper;
+    }
+
+    private ResponsePath routing(GraphHopper hopper, GHPoint start, GHPoint end) {
+        GHRequest req = new GHRequest(start, end)
+                .setProfile("foot")  // 보행자 프로필 사용
+                .setLocale(Locale.US);
+
+        GHResponse rsp = hopper.route(req);
+
+        if (rsp.hasErrors()) {
+            throw new RuntimeException(rsp.getErrors().toString());
+        }
+
+        ResponsePath path = rsp.getBest();
+
+        // 경로 정보 출력
+        System.out.println("총 거리: " + path.getDistance() + " 미터");
+        System.out.println("예상 소요 시간: " + (path.getTime() / 60000) + " 분");
+
+        return path;
+    }
 }
+
 
