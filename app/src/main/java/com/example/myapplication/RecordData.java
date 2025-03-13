@@ -1,28 +1,32 @@
 package com.example.myapplication;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-import java.util.Date;
-
-@Entity(tableName = "datas")
 public class RecordData {
+    private String id;
+    private long insertionDate;
+    private int time;
+    private double distance;
 
-    @PrimaryKey(autoGenerate = true)
-    public int id;
+    // 생성자, getter, setter
+    public RecordData() {}
 
-    //단위: sec
-    @ColumnInfo(name="running_time")
-    public int time;
+    public RecordData(String id, long insertionDate, int time, double distance) {
+        this.id = id;
+        this.insertionDate = insertionDate;
+        this.time = time;
+        this.distance = distance;
+    }
 
-    //단위: m
-    @ColumnInfo(name="running_distance")
-    public double distance;
+    // getter, setter
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
+    public long getInsertionDate() { return insertionDate; }
+    public void setInsertionDate(long insertionDate) { this.insertionDate = insertionDate; }
 
-    @ColumnInfo(name="running_pace")
-    public double pace;
+    public int getTime() { return time; }
+    public void setTime(int time) { this.time = time; }
 
-    @ColumnInfo(name="insertion_data")
-    public Long insertionDate;
+    public double getDistance() { return distance; }
+    public void setDistance(double distance) { this.distance = distance; }
 }
+
