@@ -215,16 +215,7 @@
                 android:adjustViewBounds="true"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/map_image" />
-            <!-- 상세보기 버튼 -->
-            <ImageView
-                android:id="@+id/image_showbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="30dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/showdetail_button" />
+
 
             <!-- 달리기 버튼 -->
             <ImageView
