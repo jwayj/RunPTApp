@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -27,7 +26,6 @@ public class RecordDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_recorddetail);
 
         // View 초기화
@@ -61,8 +59,8 @@ public class RecordDetail extends AppCompatActivity {
         // 뒤로가기 버튼 설정
         ImageButton buttonBack = findViewById(R.id.button_back);
         buttonBack.setOnClickListener(view -> {
-            Intent intent = new Intent(RecordDetail.this, RecordFragment.class);
-            startActivity(intent);
+            // 프래그먼트 전환 로직 추가 필요
+            finish(); // 현재 액티비티 종료
         });
     }
 
@@ -97,3 +95,4 @@ public class RecordDetail extends AppCompatActivity {
         }).addOnFailureListener(e -> Log.d("DB_LOG", "Error fetching document", e));
     }
 }
+
