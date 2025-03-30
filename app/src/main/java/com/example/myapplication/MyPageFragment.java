@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -26,6 +29,21 @@ public class MyPageFragment extends Fragment {
 
     public MyPageFragment() {
         // Required empty public constructor
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mView = null; // 뷰 참조 초기화
+    }
+
+    private View mView;
+    private Context mContext;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mView = view;
+        mContext = requireContext();
     }
 
     /**

@@ -7,11 +7,31 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 
 public class BadgeFragment extends Fragment {
 
     public BadgeFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mView = null; // 뷰 참조 초기화
+    }
+
+    private View mView;
+    private Context mContext;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mView = view;
+        mContext = requireContext();
     }
 
     @Override

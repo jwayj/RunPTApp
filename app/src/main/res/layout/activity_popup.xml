@@ -38,8 +38,8 @@
         <!-- 닫기 버튼 (오른쪽 X 아이콘) -->
         <ImageView
             android:id="@+id/close_button"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/ic_close"
             android:contentDescription="닫기"
             app:layout_constraintEnd_toEndOf="parent"

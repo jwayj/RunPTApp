@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 
@@ -34,7 +37,21 @@ public class RecordFragment extends Fragment {
 
     private LinearLayout buttonContainer; // 버튼 컨테이너 선언
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mView = null; // 뷰 참조 초기화
+    }
 
+    private View mView;
+    private Context mContext;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mView = view;
+        mContext = requireContext();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

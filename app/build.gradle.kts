@@ -15,7 +15,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -27,6 +26,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -36,55 +36,91 @@ android {
         viewBinding = true
     }
 
-    // Protobuf 충돌 해결을 위한 파일 제외 설정
+    // 중복 파일 및 리소스 제외 설정
     packagingOptions {
         exclude("META-INF/proguard/androidx-annotations.pro")
-        exclude("google/protobuf/type.proto") // Protobuf 관련 중복 파일 제외
-        exclude("google/protobuf/descriptor.proto") // 추가적으로 descriptor.proto도 제외
+        exclude("google/protobuf/type.proto")
+        exclude("google/protobuf/descriptor.proto")
         exclude("META-INF/LICENSE")
         exclude("META-INF/NOTICE")
+        exclude("com/graphhopper/custom_models/cargo_bike.json") // GraphHopper 중복 파일 제외
+        exclude("com/graphhopper/util/bn_BN.txt")
+        exclude("com/graphhopper/util/in_ID.txt")
+        exclude("com/graphhopper/util/hsb.txt")
+        exclude("com/graphhopper/util/bg.txt")
+        exclude("com/graphhopper/util/fa.txt")
+        exclude("com/graphhopper/custom_models/truck.json")
+        exclude("com/graphhopper/util/mn.txt")
+        exclude("com/graphhopper/util/eo.txt")
+        exclude("com/graphhopper/util/sr_RS.txt")
+        exclude("kotlin/coroutines/coroutines.kotlin_builtins")
+        exclude("com/graphhopper/util/uk.txt")
+        exclude("com/graphhopper/util/lt.txt")
+        exclude("com/graphhopper/util/it.txt")
+        exclude("com/graphhopper/util/es.txt")
+        exclude("com/graphhopper/util/pl_PL.txt")
+        exclude("kotlin/kotlin_builtins")
+
     }
     packaging {
-        resources.excludes.add("google/protobuf/type.proto")
-        resources.excludes.add("google/protobuf/descriptor.proto")
-        resources.excludes.add("META-INF/proguard/androidx-annotations.pro")
-        resources.excludes.add("META-INF/LICENSE")
-        resources.excludes.add("META-INF/NOTICE")
+        resources.excludes.addAll(
+            listOf(
+                "META-INF/proguard/androidx-annotations.pro",
+                "google/protobuf/type.proto",
+                "google/protobuf/descriptor.proto",
+                "META-INF/LICENSE",
+                "META-INF/NOTICE",
+                "com/graphhopper/custom_models/cargo_bike.json", // GraphHopper 중복 파일 제외
+                "com/graphhopper/util/hu_HU.txt", // 추가적으로 발견된 중복 파일 제외
+                "com/graphhopper/util/bn_BN.txt",
+                "com/graphhopper/util/in_ID.txt",
+                "com/graphhopper/util/hsb.txt",
+                "com/graphhopper/util/bg.txt",
+                "com/graphhopper/util/fa.txt",
+                "com/graphhopper/custom_models/truck.json",
+                "com/graphhopper/util/mn.txt",
+                "com/graphhopper/util/eo.txt",
+                "com/graphhopper/util/sr_RS.txt",
+                "com/graphhopper/util/uk.txt",
+                "com/graphhopper/util/lt.txt",
+                "com/graphhopper/util/it.txt",
+                "com/graphhopper/util/es.txt",
+                "com/graphhopper/util/pl_PL.txt"
+
+            )
+        )
     }
 }
 
 dependencies {
+    // GraphHopper 라이브러리 추가
+    implementation(files("libs/graphhopper-web-10.0.jar"))
+    implementation(files("libs/graphhopper-core-10.0-SNAPSHOT.jar"))
+
     // Firebase BOM (중복 방지)
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
 
-    // OSMDroid 및 GraphHopper 의존성
+    // OSMDroid 라이브러리
     implementation("org.osmdroid:osmdroid-android:6.1.14")
     implementation("org.osmdroid:osmdroid-mapsforge:6.1.14")
     implementation("org.osmdroid:osmdroid-geopackage:6.1.14")
-    implementation("com.graphhopper:graphhopper-core:10.2")
 
-    // SLF4J (로그 처리)
+    // SLF4J 로깅
     implementation("org.slf4j:slf4j-api:1.7.30")
     implementation("org.slf4j:slf4j-android:1.7.30")
+    implementation("org.slf4j:slf4j-simple:1.7.30")
 
     // Protobuf 라이브러리 통일
-    implementation("com.google.protobuf:protobuf-javalite:3.21.12") // protobuf-java 대신 javalite 사용
+    implementation("com.google.protobuf:protobuf-javalite:3.21.12")
 
-    // AndroidX Activity KTX (EdgeToEdge 포함)
+    // AndroidX 및 Material Design 라이브러리
     implementation("androidx.activity:activity-ktx:1.9.0")
-
-    // Material Design 라이브러리 추가
     implementation("com.google.android.material:material:1.9.0")
-
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-
-
-
 
     // 테스트용 라이브러리
     testImplementation(libs.junit)
@@ -92,14 +128,25 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 }
 
-// Protobuf 버전 강제 통일
+// 전역 설정에서 중복된 클래스 및 파일 제외
 configurations.all {
     resolutionStrategy {
-        force("com.google.protobuf:protobuf-javalite:3.21.12") // 모든 의존성에서 동일한 버전 사용
-        exclude(group = "com.google.protobuf", module = "protobuf-java") // protobuf-java 제외
+        // Guava 버전 강제 지정
+        force("com.google.guava:guava:32.1.3-android")
+        // GraphHopper에서 포함된 Guava 제거
+        exclude(group = "com.google.guava", module = "guava")
+        exclude(group = "com.google.guava", module = "listenablefuture")
+        exclude(group = "com.google.errorprone", module = "error_prone_annotations")
+        force("com.google.protobuf:protobuf-javalite:3.21.12")
+        // GraphHopper에서 포함된 Protobuf 제거
+        exclude(group = "com.google.protobuf", module = "protobuf-javalite")
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+        exclude(group = "com.google.protobuf", module = "protolite-well-known-types")
+        exclude(group = "com.google.protobuf", module = "protobuf-lite")
+
+        exclude(group = "org.jetbrains.kotlin", module = "kotlin-builtin")
+        exclude(group = "com.google.protobuf", module = "protobuf-java")
+        exclude(group = "com.google.protobuf", module = "protobuf-lite")
+        force("com.google.protobuf:protobuf-javalite:3.21.12")
     }
 }
-
-
-
-
