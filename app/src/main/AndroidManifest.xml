@@ -14,49 +14,49 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".Map"
+            android:name=".ui.activities.Map"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_map"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".SearchPopup"
+            android:name=".ui.popups.SearchPopup"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_search_popup"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".Popup"
+            android:name=".ui.popups.Popup"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_popup"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".RecordDetail"
+            android:name=".data.RecordDetail"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_record_detail"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".Signup3"
+            android:name=".ui.popups.Signup3"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_signup3"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".Signup2"
+            android:name=".ui.popups.Signup2"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_signup2"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".Signup1"
+            android:name=".ui.popups.Signup1"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_signup1"
             android:theme="@style/Theme.MyApplication.Fullscreen" />
         <activity
-            android:name=".Login"
+            android:name=".ui.activities.Login"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:label="@string/title_activity_login"
@@ -68,7 +68,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:exported="false" />
 
     </application>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".Login">
+    tools:context=".ui.activities.Login">
 
 
     <LinearLayout
@@ -24,14 +24,14 @@
             android:text="로그인"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="25dp"
+            android:textSize="40dp"
             android:textAlignment="center"
             android:gravity="center_horizontal" />
 
         <EditText
             android:id="@+id/editID"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center"
             android:background="@drawable/box"
@@ -43,7 +43,7 @@
         <EditText
             android:id="@+id/editPassword"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@drawable/box"
             android:ems="10"
@@ -52,8 +52,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/loginbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
@@ -64,9 +64,9 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/signupbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="160dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp"
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
             android:text="회원가입"
