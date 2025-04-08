@@ -82,10 +82,10 @@ public class Popup extends AppCompatActivity {
             double startLon = Double.parseDouble(editStart.getTag().toString());
             double endLat = Double.parseDouble(editDestination.getTag().toString());
             double endLon = Double.parseDouble(editDestination.getTag().toString());
-            //distance 추가해야함
+            double distance = Double.parseDouble(editDistance.getTag().toString());
 
             // Routing 모듈 기능 호출
-            RoutingCore.calculateRoute(this, startLat, startLon, endLat, endLon);
+            RoutingCore.calculateRoute(distance, startLat, startLon, endLat, endLon);
 
         } catch (NumberFormatException e) {
             Toast.makeText(this, "잘못된 좌표 형식", Toast.LENGTH_SHORT).show();

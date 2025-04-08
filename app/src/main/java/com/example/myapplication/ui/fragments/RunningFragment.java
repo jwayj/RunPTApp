@@ -1,5 +1,7 @@
 package com.example.myapplication.ui.fragments;
 
+import java.io.IOException;
+
 import android.widget.Button;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,11 +25,14 @@ import androidx.webkit.WebViewAssetLoader;
 
 import com.example.myapplication.R;
 import com.example.myapplication.ui.popups.Popup;
+import com.example.myapplication.ui.popups.LocalWebServer;
 
 public class RunningFragment extends Fragment {
     private WebView webView;
     private Button startButton;
     private static final int ROUTE_REQUEST = 100;
+
+    private LocalWebServer localWebServer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,12 +40,25 @@ public class RunningFragment extends Fragment {
 
         webView = view.findViewById(R.id.webview);
 
-        startButton = view.findViewById(R.id.startButton);
+        // 로컬 웹 서버 시작
+        startLocalWebServer();
 
+        // 웹뷰 설정
         setupWebView();
-        setupButton();
+        setupButton(view); // 뷰를 전달
 
         return view;
+    }
+
+
+    private void startLocalWebServer() {
+        try {
+            localWebServer = new LocalWebServer(4567); // 포트 번호 4567로 설정
+            localWebServer.start();
+            Log.d("LocalWebServer", "Local web server started at http://localhost:4567/");
+        } catch (IOException e) {
+            Log.e("LocalWebServer", "Failed to start local web server: " + e.getMessage());
+        }
     }
 
     private void setupWebView() {
@@ -88,7 +106,18 @@ public class RunningFragment extends Fragment {
         settings.setSupportMultipleWindows(true); // 다중 창 지원
 
         // HTML 파일 로드
-        webView.loadUrl("https://appassets.androidplatform.net/assets/map.html");
+        webView.loadUrl("http://localhost:4567/");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // 웹 서버 종료
+        if (localWebServer != null) {
+            localWebServer.stop();
+            Log.d("LocalWebServer", "Local web server stopped.");
+        }
     }
 
     // 로컬 콘텐츠 처리를 위한 WebViewClient 구현
@@ -111,17 +140,23 @@ public class RunningFragment extends Fragment {
             super.onReceivedError(view, errorCode, description, failingUrl);
         }
     }
-    private void setupButton() {
-        startButton.setOnClickListener(v -> {
-            // WebView에서 데이터 가져오기
-            webView.evaluateJavascript("javascript:getRouteData()", value -> {
-                // 새로운 팝업 액티비티 시작
-                Intent intent = new Intent(getActivity(), Popup.class);
-                intent.putExtra("route_data", value);
-                startActivity(intent);
+    private void setupButton(View view) {
+        startButton = view.findViewById(R.id.startButton); // 버튼 ID로 초기화
+        if (startButton != null) { // NullPointerException 방지
+            startButton.setOnClickListener(v -> {
+                // WebView에서 데이터 가져오기
+                webView.evaluateJavascript("javascript:getRouteData()", value -> {
+                    // 새로운 팝업 액티비티 시작
+                    Intent intent = new Intent(getActivity(), Popup.class);
+                    intent.putExtra("route_data", value);
+                    startActivity(intent);
+                });
             });
-        });
+        } else {
+            Log.e("RunningFragment", "startButton not found in layout!");
+        }
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {

@@ -51,6 +51,12 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
 
+    implementation ("ch.qos.logback:logback-classic:1.2.11")
+
+    implementation ("org.json:json:20230618")
+    implementation ("com.sparkjava:spark-core:2.9.4")
+    implementation ("com.google.code.gson:gson:2.10.1")
+
     // GraphHopper 라이브러리
     implementation("com.graphhopper:graphhopper-core:10.0-SNAPSHOT") {
         exclude(group = "org.slf4j", module = "slf4j-api")
@@ -71,11 +77,10 @@ dependencies {
     androidTestImplementation("androidx.test:core:1.5.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+
     // JUnit 의존성
     testImplementation("junit:junit:4.13.2")
 
-    // 테스트 라이브러리
-    testImplementation("junit:junit:4.13.2")
 }
 
 

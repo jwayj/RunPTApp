@@ -20,6 +20,13 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // 기본 Fragment를 RunningFragment로 설정
+        if (savedInstanceState == null) { // Activity가 처음 생성된 경우에만 실행
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new RunningFragment())
+                    .commit();
+        }
+
         setupBottomNavigation();
     }
 

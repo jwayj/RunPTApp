@@ -104,6 +104,8 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_configuration:2.0.4")
 
+    implementation ("org.nanohttpd:nanohttpd:2.3.1")
+
     // 테스트용 라이브러리
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

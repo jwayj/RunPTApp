@@ -64,4 +64,4 @@ public class GeoJsonExporter2 {
 
         return geoJson.toString();
     }
-}
+} 

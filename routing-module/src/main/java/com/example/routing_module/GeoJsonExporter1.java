@@ -12,9 +12,9 @@ public class GeoJsonExporter1 {
         PointList points = path.getPoints();
         StringBuilder geoJson = new StringBuilder();
         geoJson.append("{\"type\": \"FeatureCollection\", \"features\": [{")
-                .append("\"type\": \"Feature\", \"geometry\": {")
-                .append("\"type\": \"LineString\", \"coordinates\": [");
-
+               .append("\"type\": \"Feature\", \"geometry\": {")
+               .append("\"type\": \"LineString\", \"coordinates\": [");
+        
         for (int i = 0; i < points.size(); i++) {
             double lon = points.getLon(i);
             double lat = points.getLat(i);
