@@ -9,6 +9,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
 
+import android.util.Log;
+import android.content.Context;
+
 import com.graphhopper.GHRequest;
 import com.graphhopper.GHResponse;
 import com.graphhopper.GraphHopper;
@@ -36,17 +39,19 @@ import com.graphhopper.util.Translation;
 import com.graphhopper.util.details.PathDetail;
 import com.graphhopper.util.shapes.GHPoint;
 
-
-
-
-
-
 public class RoutingCore {
-    public static void main(String[] args) {
+    public static void calculateRoute(
+            Context context,
+            double startLat,
+            double startLon,
+            double endLat,
+            double endLon
+    ) {
+        Log.d("RouteCore", "경로 계산 시작");
         String currentDir = System.getProperty("user.dir");
 
         // 상대 경로 설정 (현재 디렉토리 기준)
-        String relativePath = "\\routing-module\\subset.osm.pbf"; // 상대 경로
+        String relativePath = "\\routing-module\\seoul-non-military.osm.pbf"; // 상대 경로
         String filePath = currentDir + relativePath;
 
         // GraphHopper 인스턴스 생성

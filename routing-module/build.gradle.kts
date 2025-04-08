@@ -54,15 +54,25 @@ dependencies {
     // GraphHopper 라이브러리
     implementation("com.graphhopper:graphhopper-core:10.0-SNAPSHOT") {
         exclude(group = "org.slf4j", module = "slf4j-api")
+        exclude(group = "com.google.guava")
     }
 
     // SLF4J 및 Logback
-    implementation("org.slf4j:slf4j-api:2.0.7")
+    implementation("org.slf4j:slf4j-api:1.7.30")
     implementation("org.slf4j:slf4j-android:1.7.30")
 
     // Desugaring 추가
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs_configuration:2.0.4")
+
+    // AndroidX 테스트 라이브러리 추가
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test:runner:1.5.2")
+    androidTestImplementation("androidx.test:core:1.5.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // JUnit 의존성
+    testImplementation("junit:junit:4.13.2")
 
     // 테스트 라이브러리
     testImplementation("junit:junit:4.13.2")

@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Login extends AppCompatActivity {
     TextView sign;
     AppCompatButton loginButton;
+    AppCompatButton skipButton;
     EditText editID, editPassword;
     private FirebaseAuth mAuth; // FirebaseAuth 인스턴스
 
@@ -58,6 +59,14 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(this, Signup1.class);
             startActivity(intent);
         });
+
+        skipButton = findViewById(R.id.skipButton);
+        skipButton.setOnClickListener(v ->{
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
+
     }
 }
 

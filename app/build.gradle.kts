@@ -72,15 +72,13 @@ android {
 dependencies {
     implementation(project(":routing-module"))
 
-    implementation ("com.google.guava:guava:31.1-android")
+    implementation("com.google.guava:guava:32.1.3-android")
 
-    // Firebase BOM (중복 방지)
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
-    implementation ("com.google.firebase:firebase-core:21.1.0")
-    implementation ("com.google.firebase:firebase-appcheck:17.0.0")
+    implementation("com.google.firebase:firebase-appcheck")  // BOM 버전 사용
 
     // OSMDroid 라이브러리
     implementation("org.osmdroid:osmdroid-android:6.1.14")
@@ -121,8 +119,6 @@ configurations.all {
         force ("org.slf4j:slf4j-api:1.7.30")
 
         // 중복 모듈 제외
-        exclude(group = "com.google.guava", module = "guava")
-        exclude(group = "com.google.guava", module = "listenablefuture")
         exclude(group = "com.google.errorprone", module = "error_prone_annotations")
         exclude(group = "com.google.protobuf", module = "protobuf-javalite")
         exclude(group = "com.google.protobuf", module = "protobuf-java")

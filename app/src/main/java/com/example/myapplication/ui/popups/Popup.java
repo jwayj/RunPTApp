@@ -8,10 +8,12 @@ import android.widget.ImageView;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
+import com.example.routing_module.RoutingCore;
 
 
 public class Popup extends AppCompatActivity {
@@ -74,11 +76,21 @@ public class Popup extends AppCompatActivity {
     }
 
     public void onSearchRouteClicked(View view) {
-        // 입력값 파싱
-        double startLat = Double.parseDouble(editStart.getTag().toString());
-        double startLon = Double.parseDouble(editStart.getTag().toString());
-        double endLat = Double.parseDouble(editDestination.getTag().toString());
-        double endLon = Double.parseDouble(editDestination.getTag().toString());
+        try {
+            // 입력값 파싱 (주의: 현재 코드는 태그에서 값을 가져오므로 실제 구현 수정 필요)
+            double startLat = Double.parseDouble(editStart.getTag().toString());
+            double startLon = Double.parseDouble(editStart.getTag().toString());
+            double endLat = Double.parseDouble(editDestination.getTag().toString());
+            double endLon = Double.parseDouble(editDestination.getTag().toString());
+            //distance 추가해야함
+
+            // Routing 모듈 기능 호출
+            RoutingCore.calculateRoute(this, startLat, startLon, endLat, endLon);
+
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, "잘못된 좌표 형식", Toast.LENGTH_SHORT).show();
+        }
+
 
 
     }
