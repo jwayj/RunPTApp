@@ -1,6 +1,8 @@
 package com.example.myapplication.ui.popups;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -9,11 +11,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
+import android.os.Build;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
 import com.example.routing_module.RoutingCore;
+
+import java.io.IOException;
+import java.util.List;
 
 
 public class Popup extends AppCompatActivity {
@@ -77,25 +83,65 @@ public class Popup extends AppCompatActivity {
 
     public void onSearchRouteClicked(View view) {
         try {
-            // 입력값 파싱 (주의: 현재 코드는 태그에서 값을 가져오므로 실제 구현 수정 필요)
+            // 입력값 검증
+            if (editStart.getText().toString().isEmpty() ||
+                    editDestination.getText().toString().isEmpty() ||
+                    editDistance.getText().toString().isEmpty()) {
+                Toast.makeText(this, "모든 필드를 입력해주세요", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 좌표 파싱 (실제 구현시 Geocoding 필요)
             double startLat = Double.parseDouble(editStart.getTag().toString());
             double startLon = Double.parseDouble(editStart.getTag().toString());
             double endLat = Double.parseDouble(editDestination.getTag().toString());
             double endLon = Double.parseDouble(editDestination.getTag().toString());
-            double distance = Double.parseDouble(editDistance.getTag().toString());
+            double distance = Double.parseDouble(editDistance.getText().toString());
 
-            // Routing 모듈 기능 호출
-            RoutingCore.calculateRoute(distance, startLat, startLon, endLat, endLon);
+            // 서비스 인텐트 생성
+            Intent serviceIntent = new Intent(this, RoutingForegroundService.class);
+            serviceIntent.putExtra("distance", distance);
+            serviceIntent.putExtra("startLat", startLat);
+            serviceIntent.putExtra("startLon", startLon);
+            serviceIntent.putExtra("endLat", endLat);
+            serviceIntent.putExtra("endLon", endLon);
+
+            // Android 8.0 이상 대응
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(serviceIntent);
+            } else {
+                startService(serviceIntent);
+            }
 
         } catch (NumberFormatException e) {
             Toast.makeText(this, "잘못된 좌표 형식", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
-
-
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode == RESULT_OK && data != null) {
+//            String selectedAddress = data.getStringExtra("selectedAddress");
+//
+//            // 주소를 좌표로 변환 (예: Google Geocoding API 사용)
+//            Geocoder geocoder = new Geocoder(this);
+//            try {
+//                List<Address> addresses = geocoder.getFromLocationName(selectedAddress, 1);
+//                if (!addresses.isEmpty()) {
+//                    double lat = addresses.get(0).getLatitude();
+//                    double lon = addresses.get(0).getLongitude();
+//
+//                    if (requestCode == 1) {
+//                        editStart.setTag(new double[]{lat, lon});
+//                    } else if (requestCode == 2) {
+//                        editDestination.setTag(new double[]{lat, lon});
+//                    }
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     // 주소 선택 후 결과 처리
     @Override

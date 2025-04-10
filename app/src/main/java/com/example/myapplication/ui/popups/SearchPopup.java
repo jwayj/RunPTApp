@@ -38,4 +38,5 @@ public class SearchPopup extends AppCompatActivity {
         // 이전 액티비티로 돌아가기
         finish();
     }
+
 }
