@@ -64,7 +64,7 @@ public class RunningFragment extends Fragment {
         settings.setDomStorageEnabled(true);
 
         // Live Server URL 설정
-        webView.loadUrl("http://192.168.45.173:5500/example/resources/index.html");
+        webView.loadUrl("http://10.0.2.2:4567");
     }
 
     private void setupButton(View view) {
