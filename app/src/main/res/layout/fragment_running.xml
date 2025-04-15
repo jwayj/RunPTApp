@@ -12,16 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <!-- RelativeLayout: 하단 70%만 덮음 -->
+    <RelativeLayout
+        android:id="@+id/sub_webview"
+        android:layout_width="match_parent"
+        android:layout_height= "0dp"
+        android:layout_gravity="bottom"
+        android:visibility="gone" />
+
     <!-- 시작 버튼 -->
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="140dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="60dp"
-        android:text="시작"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:backgroundTint="@color/light_blue"
-        android:textColor="@android:color/white" />
+<!--    <Button-->
+<!--        android:id="@+id/startButton"-->
+<!--        android:layout_width="140dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_gravity="center_horizontal|bottom"-->
+<!--        android:layout_marginBottom="60dp"-->
+<!--        android:text="시작"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:backgroundTint="@color/light_blue"-->
+<!--        android:textColor="@android:color/white" />-->
 </FrameLayout>

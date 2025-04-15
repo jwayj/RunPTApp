@@ -4,9 +4,12 @@
         <domain includeSubdomains="true">localhost</domain>
     </domain-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.45.173</domain>
+        <domain includeSubdomains="true">10.0.2.2</domain>
     </domain-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">10.0.2.2</domain>
+        <domain includeSubdomains="true">postcode.map.daum.net</domain>
+    </domain-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.45.15</domain>
     </domain-config>
 </network-security-config>
