@@ -106,6 +106,8 @@ dependencies {
 
     implementation ("org.nanohttpd:nanohttpd:2.3.1")
 
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
     // 테스트용 라이브러리
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
@@ -129,5 +131,7 @@ configurations.all {
         exclude(group = "org.jetbrains.kotlin", module = "kotlin-builtin")
         exclude(group = "org.slf4j", module = "slf4j-simple")
         exclude(group = "ch.qos.logback", module = "logback-classic")
+        exclude (group= "org.slf4j", module= "slf4j-android")
+        exclude (group= "ch.qos.logback", module= "logback-classic")
     }
 }

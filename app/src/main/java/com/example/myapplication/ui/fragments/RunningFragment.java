@@ -34,6 +34,8 @@ import com.example.routing_module.RoutingCore;
 
 import android.widget.RelativeLayout;
 import androidx.activity.OnBackPressedCallback;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 
 
 public class RunningFragment extends Fragment {
@@ -42,13 +44,30 @@ public class RunningFragment extends Fragment {
     private RelativeLayout subBaseView;
     private int counter = 10;
 
+    private SwipeRefreshLayout refreshLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_running, container, false);
 
-        subBaseView = view.findViewById(R.id.sub_webview);
+        refreshLayout = view.findViewById(R.id.refresh_layout); // 변수 초기화
         webView = view.findViewById(R.id.webview);
         setupWebView();
+
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                webView.reload(); // 웹뷰 새로고침
+            }
+        });
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                refreshLayout.setRefreshing(false); // 새로고침 아이콘 종료
+            }
+        });
 
         setupBackPressHandler();
         return view;
@@ -165,7 +184,7 @@ public class RunningFragment extends Fragment {
         webView.setWebChromeClient(new HelloWebChromeClient());
         webView.setWebViewClient(new WebViewClient());
 //        webView.loadUrl("http://10.0.2.2:4567");
-        webView.loadUrl("http://192.168.45.15:4567");
+        webView.loadUrl("http://192.168.45.3:4567");
 
     }
 
