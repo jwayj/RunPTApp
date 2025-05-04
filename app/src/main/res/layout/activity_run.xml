@@ -238,29 +238,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="16dp"
-                android:weightSum="2">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="100dp">
 
                 <!-- 일시정지/재생 토글 버튼 -->
                 <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnTogglePause"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="60dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:backgroundTint="#7BCFFA"
                     android:padding="16dp"
                     android:src="@drawable/ic_pause"
+                    android:background="@drawable/circle_button"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
                     android:contentDescription="일시정지" />
 
                 <!-- 종료 버튼 -->
-                <androidx.appcompat.widget.AppCompatButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/btnEndRun"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gmarketmedium"
-                    android:text="러닝 종료"
-                    android:textSize="20sp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:drawableTop="@drawable/ic_stop"
+                    android:background="@drawable/circle_button"
+                    android:scaleType="centerInside"
+                    android:adjustViewBounds="true"
                     android:backgroundTint="#7BCFFA"
                     android:textColor="#FFFFFF"/>
             </LinearLayout>
