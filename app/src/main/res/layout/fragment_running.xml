@@ -6,7 +6,7 @@
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="886dp">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_notices"
@@ -20,6 +20,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/circle_button"
         android:fontFamily="@font/gmarketbold"
         android:text="시작"

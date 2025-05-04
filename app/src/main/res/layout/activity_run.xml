@@ -10,6 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/light_blue"
+        android:gravity="center_vertical"
+        app:titleMarginTop="10dp"
+        app:titleMarginBottom="0dp"
         app:title="러닝 중"
         app:titleTextColor="@android:color/white"
         app:titleTextAppearance="@style/MyToolbarTitle"
@@ -153,40 +156,115 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="닫기"/>
 
-            <TextView
-                android:id="@+id/tvStatTime"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="시간: 00:00:00"
-                android:textSize="18sp"
-                android:layout_marginTop="8dp"/>
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:paddingTop="8dp">
 
-            <TextView
-                android:id="@+id/tvStatPace"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="페이스: 0'00km"
-                android:textSize="18sp"
-                android:layout_marginTop="4dp"/>
+                <!-- 시간 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시간"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/gmarketmedium"/>
+
+                    <TextView
+                        android:id="@+id/tvStatTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="24:12"
+                        android:textSize="24sp"
+                        android:fontFamily="@font/gmarketlight"
+                        android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- 페이스 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="페이스"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/gmarketmedium"/>
+
+                    <TextView
+                        android:id="@+id/tvStatPace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10’22"
+                    android:textSize="24sp"
+                    android:fontFamily="@font/gmarketlight"
+                    android:layout_marginTop="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tvStatDistance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="거리: 0.00 km"
-                android:textSize="18sp"
-                android:layout_marginTop="4dp"/>
-            <!-- 기존 통계 TextView들 아래에 추가 -->
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnEndRun"
+                android:text="0.00"
+                android:gravity="center"
+                android:textSize="60sp"
+                android:fontFamily="@font/gmarketbold"
+                android:layout_marginTop="40dp"/>
+            <TextView
+                android:id="@+id/tvStatDistanceUnit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/gmarketmedium"
-                android:text="러닝 종료"
+                android:text="킬로미터"
+                android:gravity="center"
                 android:textSize="20sp"
+                android:fontFamily="@font/gmarketmedium"
+                android:layout_marginTop="8dp"/>
+            <!-- 기존 통계 TextView들 아래에 추가 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_marginTop="16dp"
-                android:backgroundTint="#7BCFFA"
-                android:textColor="#FFFFFF"/>
+                android:weightSum="2">
+
+                <!-- 일시정지/재생 토글 버튼 -->
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnTogglePause"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#7BCFFA"
+                    android:padding="16dp"
+                    android:src="@drawable/ic_pause"
+                    android:contentDescription="일시정지" />
+
+                <!-- 종료 버튼 -->
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnEndRun"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gmarketmedium"
+                    android:text="러닝 종료"
+                    android:textSize="20sp"
+                    android:backgroundTint="#7BCFFA"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
         </LinearLayout>
     </FrameLayout>
 </RelativeLayout>

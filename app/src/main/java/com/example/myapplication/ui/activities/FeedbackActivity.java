@@ -29,6 +29,7 @@ public class FeedbackActivity extends AppCompatActivity {
         // ① WebView 바인딩 및 설정
         webviewFeedback = findViewById(R.id.webviewFeedback);
         WebSettings ws = webviewFeedback.getSettings();
+        ws.setUseWideViewPort(true);
         ws.setJavaScriptEnabled(true);
         ws.setDomStorageEnabled(true);
         // 필요 시
