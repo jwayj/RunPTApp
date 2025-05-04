@@ -64,6 +64,7 @@ public class RunActivity extends AppCompatActivity {
         ws.setDomStorageEnabled(true);
         ws.setUseWideViewPort(true);
         ws.setLoadWithOverviewMode(true);
+
         runWebView.setWebViewClient(new WebViewClient());
         runWebView.loadUrl("http://192.168.123.5:4567/maponly.html");
 

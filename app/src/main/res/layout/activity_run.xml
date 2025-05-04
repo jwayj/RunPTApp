@@ -265,8 +265,7 @@
                     android:background="@drawable/circle_button"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
-                    android:backgroundTint="#7BCFFA"
-                    android:textColor="#FFFFFF"/>
+                    android:backgroundTint="#7BCFFA"/>
             </LinearLayout>
 
         </LinearLayout>
