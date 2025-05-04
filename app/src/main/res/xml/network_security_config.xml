@@ -10,6 +10,6 @@
         <domain includeSubdomains="true">postcode.map.daum.net</domain>
     </domain-config>
     <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">192.168.45.3</domain>
+        <domain includeSubdomains="true">192.168.123.5</domain>
     </domain-config>
 </network-security-config>

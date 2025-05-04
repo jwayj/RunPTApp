@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- (1) 상단바 -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/light_blue"
+        app:title="러닝 중"
+        app:titleTextColor="@android:color/white"
+        app:titleTextAppearance="@style/MyToolbarTitle"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <!-- WebView: map.html 표시 -->
+    <WebView
+        android:id="@+id/runWebView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/btnStartRun" />
+
+    <!-- 러닝 시작 버튼 -->
+    <Button
+        android:id="@+id/btnStartRun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bottom_navigation"
+        android:text="🏃‍♂️ 러닝 시작"
+        android:textSize="18sp"
+        android:background="@color/light_blue"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+
+    <!-- 하단 네비게이션 -->
+    <LinearLayout
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#FFFFFF"
+        android:gravity="center">
+
+        <!-- 네비게이션 아이콘들 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/ic_challenge_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_challenge" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/nav_running_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_running" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/nav_record_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_record" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#CCCCCC" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="8dp">
+            <ImageView
+                android:id="@+id/nav_mypage_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_mypage" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <FrameLayout
+        android:id="@+id/stats_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC000000"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:elevation="8dp">
+
+        <!-- 4-1) 통계 카드: 하단에 풀 너비로 띄우기 -->
+        <LinearLayout
+            android:id="@+id/stats_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:background="#FFF"
+            android:elevation="4dp"
+            android:padding="16dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageButton
+                android:id="@+id/btnCloseStats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="닫기"/>
+
+            <TextView
+                android:id="@+id/tvStatTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="시간: 00:00:00"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:id="@+id/tvStatPace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="페이스: 0'00km"
+                android:textSize="18sp"
+                android:layout_marginTop="4dp"/>
+
+            <TextView
+                android:id="@+id/tvStatDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="거리: 0.00 km"
+                android:textSize="18sp"
+                android:layout_marginTop="4dp"/>
+            <!-- 기존 통계 TextView들 아래에 추가 -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnEndRun"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gmarketmedium"
+                android:text="러닝 종료"
+                android:textSize="20sp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#7BCFFA"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </FrameLayout>
+</RelativeLayout>

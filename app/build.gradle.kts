@@ -112,6 +112,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
 }
 
 // 전역 설정에서 중복된 클래스 및 파일 제외

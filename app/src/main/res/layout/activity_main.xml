@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/light_blue"
-        app:title=""
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="">
 
         <!-- 툴바 내부의 로고 -->
         <ImageView

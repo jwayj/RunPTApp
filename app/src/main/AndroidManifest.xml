@@ -77,6 +77,8 @@
         <activity
             android:name=".ui.activities.MainActivity"
             android:exported="false" />
+        <activity android:name=".ui.activities.RunActivity" />
+        <activity android:name=".ui.activities.FeedbackActivity" />
         <service
             android:name=".ui.popups.RoutingForegroundService"
             android:foregroundServiceType="location"

@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -61,6 +62,17 @@ public class MainActivity extends FragmentActivity {
         runningIcon.setOnClickListener(navigationClickListener);
         recordIcon.setOnClickListener(navigationClickListener);
         mypageIcon.setOnClickListener(navigationClickListener);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        // 다시 RunningFragment 보여질 때
+        Fragment frag = getSupportFragmentManager()
+                .findFragmentById(R.id.fragment_container);
+        if (frag instanceof RunningFragment) {
+            ((RunningFragment) frag).resetToStart();
+        }
     }
 }
 
