@@ -239,8 +239,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="100dp">
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp">
 
                 <!-- 일시정지/재생 토글 버튼 -->
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -249,9 +249,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:backgroundTint="#7BCFFA"
-                    android:padding="16dp"
                     android:src="@drawable/ic_pause"
                     android:background="@drawable/circle_button"
+                    android:padding="8dp"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
                     android:contentDescription="일시정지" />
@@ -264,6 +264,7 @@
                     android:layout_height="100dp"
                     android:drawableTop="@drawable/ic_stop"
                     android:background="@drawable/circle_button"
+                    android:padding="8dp"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
                     android:backgroundTint="#7BCFFA"/>

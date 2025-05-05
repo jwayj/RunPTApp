@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity {
             splashBackground.setVisibility(View.GONE);
             splashLogo.setVisibility(View.GONE);
             loginContainer.setVisibility(View.VISIBLE);
-        }, 5000);
+        }, 4000);
         // FirebaseAuth 초기화
         mAuth = FirebaseAuth.getInstance();
 

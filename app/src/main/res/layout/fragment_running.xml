@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:background="@drawable/circle_button"
-        android:fontFamily="@font/gmarketmedium"
+        android:fontFamily="@font/gmarketbold"
         android:text="시 작"
         android:textSize="30sp"
         android:textColor="#FAFAFA"
