@@ -12,13 +12,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import android.content.Intent;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
 public class FeedbackActivity extends AppCompatActivity {
+
     private WebView webviewFeedback;
 
     @Override
@@ -26,23 +26,18 @@ public class FeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
 
-        // ① WebView 바인딩 및 설정
+        // ── ① WebView 바인딩 및 설정 ──
         webviewFeedback = findViewById(R.id.webviewFeedback);
         WebSettings ws = webviewFeedback.getSettings();
         ws.setUseWideViewPort(true);
         ws.setJavaScriptEnabled(true);
         ws.setDomStorageEnabled(true);
-        // 필요 시
-        // ws.setAllowFileAccess(true);
-        // ws.setAllowUniversalAccessFromFileURLs(true);
 
         webviewFeedback.addJavascriptInterface(new Object() {
             @JavascriptInterface
             public void returnToMain() {
                 runOnUiThread(() -> {
-                    // 메인 액티비티로 돌아가기
                     Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
-                    // 백스택 정리 옵션(원하면)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
                     finish();
@@ -52,19 +47,38 @@ public class FeedbackActivity extends AppCompatActivity {
 
         webviewFeedback.setWebViewClient(new WebViewClient());
         webviewFeedback.setWebChromeClient(new WebChromeClient());
-        // (b) 서버에서 내려주는 페이지를 띄울 때
         webviewFeedback.loadUrl("http://192.168.123.5:4567/map.html");
 
-        // ② 나머지 UI 초기화 (제목, 요약, 전송 버튼 등
+        // ── ② 날짜 표시 ──
         TextView tvDate = findViewById(R.id.tvDate);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 EEEE", Locale.KOREA);
         String today = sdf.format(new Date());
         tvDate.setText(today);
-        TextView tvTime=findViewById(R.id.tvTime);
-        long elapsed = getIntent().getLongExtra("elapsedTime", 0);
-        String time = formatElapsed(elapsed);
-        tvTime.setText(time);
 
+        // ── ③ 경과 시간 표시 ──
+        TextView tvTime = findViewById(R.id.tvTime);
+        long elapsed = getIntent().getLongExtra("elapsedTime", 0);
+        String timeStr = formatElapsed(elapsed);
+        tvTime.setText(timeStr);
+
+        // ── ④ 거리 표시 ──
+        TextView tvDistance = findViewById(R.id.tvDistance);
+        float distance = getIntent().getFloatExtra("distance", 0f);
+        tvDistance.setText(String.format(Locale.KOREA, "%.2f", distance));
+
+        // ── ⑤ 평균 페이스 표시 ──
+        TextView tvPace = findViewById(R.id.tvPace);
+        if (distance > 0.01f) {
+            float elapsedMin = elapsed / 60000f;
+            float pace = elapsedMin / distance;
+            tvPace.setText(String.format(Locale.KOREA, "%.2f 분/km", pace));
+        } else {
+            tvPace.setText("평균 페이스: 계산 불가");
+        }
+        // ── 6. 평균 페이스 표시 ──
+        double elevationGain = getIntent().getDoubleExtra("elevationGain", 0.0);
+        TextView tvElevation = findViewById(R.id.tvElevation);
+        tvElevation.setText(String.format(Locale.KOREA, "%.1f m", elevationGain));
 
     }
 
@@ -81,4 +95,3 @@ public class FeedbackActivity extends AppCompatActivity {
         return true;
     }
 }
-

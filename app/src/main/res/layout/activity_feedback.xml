@@ -75,53 +75,91 @@
                 android:fontFamily="@font/gmarketmedium"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="25dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/tvTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="60dp"
-                    android:fontFamily="@font/gmarketmedium"
-                    android:text="00:00:00"
-                    android:textSize="22sp" />
-
-                <TextView
-                    android:id="@+id/tvPace"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="페이스"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/gmarketmedium"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:layout_marginBottom="20dp">
-                <TextView
-                    android:id="@+id/tvTimeunit"
-                    android:layout_width="wrap_content"
+
+                <!-- 첫 번째 열: 시간 -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="시간"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/gmarketmedium"
-                    android:layout_marginEnd="100dp"/>
-                <TextView
-                    android:id="@+id/tvPaceunit"
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00:00:00"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+
+                    <TextView
+                        android:id="@+id/tvTimeunit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="시간"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+                </LinearLayout>
+
+                <!-- 두 번째 열: 페이스 -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="페이스"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/gmarketmedium"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvPace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00 분/km"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+
+                    <TextView
+                        android:id="@+id/tvPaceunit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="페이스"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+                </LinearLayout>
+
+                <!-- 세 번째 열: 고도 -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvElevation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8.2 m"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+
+                    <TextView
+                        android:id="@+id/tvElevationunit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="고도"
+                        android:textSize="22sp"
+                        android:fontFamily="@font/gmarketmedium" />
+                </LinearLayout>
             </LinearLayout>
+
+
             <!-- 제목 -->
             <TextView
                 android:id="@+id/tvFeedbackTitle"
