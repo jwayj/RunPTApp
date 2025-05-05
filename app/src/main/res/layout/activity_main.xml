@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/light_blue"
+        android:background="@drawable/gradient_toolbar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="">
 
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#FFFFFF"
+        android:background="#FAFAFA"
         android:gravity="center"
         android:layout_alignParentBottom="true">
 

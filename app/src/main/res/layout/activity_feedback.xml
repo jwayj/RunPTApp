@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
 
     <!-- (1) 상단바 -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/light_blue"
+        android:background="@drawable/gradient_toolbar"
         app:title=""
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
@@ -46,7 +47,7 @@
                 android:textSize="23sp"
                 android:fontFamily="@font/gmarketmedium"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"/>
             <ImageView
                 android:id="@+id/line"
@@ -195,7 +196,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#FFFFFF"
+        android:background="#FAFAFA"
         android:gravity="center"
         android:layout_alignParentBottom="true">
 

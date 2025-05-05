@@ -25,7 +25,7 @@
         android:fontFamily="@font/gmarketmedium"
         android:text="시 작"
         android:textSize="30sp"
-        android:textColor="@android:color/white"
+        android:textColor="#FAFAFA"
         android:gravity="center"/>
 
     <WebView
