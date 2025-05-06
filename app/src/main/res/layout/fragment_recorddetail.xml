@@ -25,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:text="Date: "
                 android:textSize="23sp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"/>
@@ -53,7 +54,8 @@
                 android:layout_height="wrap_content"
                 android:text="킬로미터"
                 android:textSize="22sp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="25dp"/>
 
@@ -86,7 +88,8 @@
                         android:layout_height="wrap_content"
                         android:text="시간"
                         android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- 두 번째 열: 페이스 -->
@@ -111,7 +114,8 @@
                         android:layout_height="wrap_content"
                         android:text="페이스"
                         android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <!-- 세 번째 열: 고도 -->
@@ -136,7 +140,8 @@
                         android:layout_height="wrap_content"
                         android:text="고도"
                         android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

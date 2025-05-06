@@ -19,7 +19,8 @@
             android:layout_height="wrap_content"
             android:text="내 배지"
             android:layout_marginTop="70dp"
-            android:fontFamily="@font/gmarketmedium"
+            android:fontFamily="@font/gmarketlight"
+            android:textStyle="bold"
             android:textSize="30sp"
             android:gravity="center"/>
         <ImageView
@@ -77,7 +78,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -101,7 +103,8 @@
                 android:layout_height="wrap_content"
                 android:text="5km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -124,7 +127,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -169,7 +173,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -191,7 +196,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -213,7 +219,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -235,7 +242,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -278,7 +286,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -300,7 +309,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -322,7 +332,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -344,7 +355,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -386,7 +398,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -408,7 +421,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -430,7 +444,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -452,7 +467,8 @@
                 android:layout_height="wrap_content"
                 android:text="1km"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </LinearLayout>
