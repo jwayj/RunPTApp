@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -22,7 +23,16 @@ import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.app.ActivityCompat;
 
 import com.example.myapplication.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RunActivity extends AppCompatActivity {
 
@@ -131,6 +141,32 @@ public class RunActivity extends AppCompatActivity {
         btnEndRun.setOnClickListener(v -> {
             timerHandler.removeCallbacks(timerRunnable);
             if (disMeasurement != null) disMeasurement.stop();
+            // Firestore에 러닝 기록 저장
+            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            Map<String, Object> runData = new HashMap<>();
+            runData.put("timestamp", FieldValue.serverTimestamp());
+            runData.put("distanceKm", disMeasurement.getDisplayDistanceKm());
+            runData.put("durationMillis", SystemClock.elapsedRealtime() - startTimeMillis);
+            runData.put("paceMinPerKm", (SystemClock.elapsedRealtime() - startTimeMillis)/disMeasurement.getDisplayDistanceKm());
+            runData.put("elevationGain", disMeasurement.getTotalElevationGain());
+
+            FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(uid)
+                    .collection("runs")
+                    .add(runData)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("RunActivity", "Run saved: " + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.e("RunActivity", "Error saving run", e);
+                        }
+                    });
             Intent i = new Intent(this, FeedbackActivity.class);
             i.putExtra("elapsedTime", SystemClock.elapsedRealtime() - startTimeMillis);
             i.putExtra("distance", disMeasurement != null ? disMeasurement.getDisplayDistanceKm() : 0f);
