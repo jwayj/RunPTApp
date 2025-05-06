@@ -18,14 +18,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="내 배지"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginTop="70dp"
             android:fontFamily="@font/gmarketmedium"
-            android:textSize="32sp"
+            android:textSize="30sp"
             android:gravity="center"/>
         <ImageView
             android:id="@+id/line"
-            android:layout_width="wrap_content"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
             android:src="@drawable/line"
             android:layout_gravity="center_horizontal"

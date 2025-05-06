@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:text="Date: "
                 android:textSize="23sp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"/>
@@ -73,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:text="킬로미터"
                 android:textSize="22sp"
-                android:fontFamily="@font/gmarketmedium"
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="25dp"/>
 
@@ -105,8 +107,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="시간"
-                        android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:textSize="18sp"
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- 두 번째 열: 페이스 -->
@@ -130,8 +133,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="페이스"
-                        android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:textSize="18sp"
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <!-- 세 번째 열: 고도 -->
@@ -155,8 +159,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="고도"
-                        android:textSize="22sp"
-                        android:fontFamily="@font/gmarketmedium" />
+                        android:textSize="18sp"
+                        android:fontFamily="@font/gmarketlight"
+                        android:textStyle="bold"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -167,11 +172,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="피드백 남기기"
-                android:textSize="21sp"
+                android:textSize="22sp"
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:fontFamily="@font/gmarketmedium"/>
+                android:fontFamily="@font/gmarketlight"
+                android:textStyle="bold"/>
 
             <!-- 웹뷰: 러닝 코스 정보/요약 표시 -->
             <WebView
@@ -196,7 +202,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#FAFAFA"
+        android:background="#FFFFFF"
         android:gravity="center"
         android:layout_alignParentBottom="true">
 

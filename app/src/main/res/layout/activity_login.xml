@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="로그인"
+            android:fontFamily="@font/gmarketmedium"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="40dp"
@@ -78,8 +79,9 @@
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
             android:text="로그인"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:fontFamily="@font/gmarketmedium"
+            android:textColor="#fafafa"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -90,8 +92,9 @@
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
             android:text="회원가입"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:fontFamily="@font/gmarketmedium"
+            android:textColor="#fafafa"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -102,8 +105,9 @@
             android:layout_gravity="center"
             android:background="@color/white"
             android:text="건너뛰기"
+            android:fontFamily="@font/gmarketmedium"
             android:textColor="@color/light_blue_600"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
