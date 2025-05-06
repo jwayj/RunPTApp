@@ -33,10 +33,11 @@
     <!-- 레코드 버튼들을 담을 컨테이너 -->
     <LinearLayout
         android:id="@+id/buttonContainer"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_marginTop="220dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="170dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/paginationContainer"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +51,7 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="8dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

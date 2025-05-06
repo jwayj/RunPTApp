@@ -28,5 +28,6 @@ public class RecordData {
 
     public double getDistance() { return distance; }
     public void setDistance(double distance) { this.distance = distance; }
+
 }
 
