@@ -14,7 +14,6 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import com.example.routing_module.RoutingCore;
 import com.example.myapplication.R;
 
 public class RoutingForegroundService extends Service {
@@ -39,10 +38,6 @@ public class RoutingForegroundService extends Service {
             double endLat = extras.getDouble("endLat");
             double endLon = extras.getDouble("endLon");
 
-            // 백그라운드 스레드에서 라우팅 실행
-            new Thread(() -> {
-                RoutingCore.calculateRoute(distance, startLat, startLon, endLat, endLon);
-            }).start();
         }
         return START_STICKY;
     }
