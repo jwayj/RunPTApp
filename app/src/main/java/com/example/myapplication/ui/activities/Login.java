@@ -3,7 +3,12 @@ package com.example.myapplication.ui.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.AppCompatButton;
@@ -19,11 +24,35 @@ public class Login extends AppCompatActivity {
     EditText editID, editPassword;
     private FirebaseAuth mAuth; // FirebaseAuth 인스턴스
 
+    private ImageView splashBackground, splashLogo;
+    private LinearLayout loginContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        splashBackground = findViewById(R.id.splashBackground);
+        splashLogo = findViewById(R.id.splashLogo);
+        //private LinearLayout loginContainer;
+        loginContainer = findViewById(R.id.loginContainer);
+
+        // 0.5초 후 로고 보이기
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            splashLogo.setVisibility(View.VISIBLE);
+            splashLogo.setAlpha(0f); // 처음엔 투명
+            splashLogo.animate()
+                    .alpha(1f)          // 최종 불투명
+                    .setDuration(1000)  // 애니메이션 지속시간: 1초
+                    .start();
+        }, 1000);
+
+        // 5초 후 스플래시 모두 숨기고 로그인 UI 표시
+        new Handler(Looper.getMainLooper()).postDelayed(() -> {
+            splashBackground.setVisibility(View.GONE);
+            splashLogo.setVisibility(View.GONE);
+            loginContainer.setVisibility(View.VISIBLE);
+        }, 4000);
         // FirebaseAuth 초기화
         mAuth = FirebaseAuth.getInstance();
 

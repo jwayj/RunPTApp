@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "495574379589",
-    "project_id": "runpt-cd2e3",
-    "storage_bucket": "runpt-cd2e3.firebasestorage.app"
+    "project_number": "620578686575",
+    "project_id": "runpt-aaae1",
+    "storage_bucket": "runpt-aaae1.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:495574379589:android:369b1d0ed078decb81472c",
+        "mobilesdk_app_id": "1:620578686575:android:701ce9de550db6b7862f9a",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBvZHELtRjdO-1TW1WHMEumASrENGk43VI"
+          "current_key": "AIzaSyCKmcRYT2fdJ4Z_4Zo2DqATqzbRR4eSTnc"
         }
       ],
       "services": {

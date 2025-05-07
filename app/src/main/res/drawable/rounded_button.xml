@@ -1,0 +1,11 @@
+<!-- res/drawable/rounded_button.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- 배경색 -->
+    <solid android:color="#7BCFFA"/>
+
+    <!-- 모서리 둥글게 (6dp 정도면 살짝 둥글게 보입니다) -->
+    <corners android:radius="6dp"/>
+
+</shape>

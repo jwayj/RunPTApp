@@ -20,8 +20,9 @@
             android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
             android:text="회원가입"
+            android:fontFamily="@font/gmarketmedium"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold" />
 
 
@@ -43,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="이름"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -64,6 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="아이디"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -91,7 +94,8 @@
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/lightbluebox"
                         android:text="중복확인"
-                        android:textColor="@color/white"
+                        android:fontFamily="@font/gmarketmedium"
+                        android:textColor="#fafafa"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -102,6 +106,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="비밀번호"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -124,6 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="비밀번호 확인"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -151,7 +157,8 @@
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/lightbluebox"
                         android:text="확인"
-                        android:textColor="@color/white"
+                        android:fontFamily="@font/gmarketmedium"
+                        android:textColor="#fafafa"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -162,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="이메일"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -183,6 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="핸드폰 번호"
+                    android:fontFamily="@font/gmarketmedium"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -215,8 +224,9 @@
                         android:layout_weight="1"
                         android:background="@drawable/box"
                         android:text="이전"
+                        android:fontFamily="@font/gmarketmedium"
                         android:textColor="@color/gray"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <!-- 회원가입 Button -->
@@ -227,8 +237,9 @@
                         android:layout_weight="1"
                         android:background="@drawable/lightbluebox"
                         android:text="회원가입"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:fontFamily="@font/gmarketmedium"
+                        android:textColor="#fafafa"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 

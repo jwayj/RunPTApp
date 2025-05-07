@@ -16,7 +16,6 @@ import android.os.Build;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.R;
-import com.example.routing_module.RoutingCore;
 
 import java.io.IOException;
 import java.util.List;

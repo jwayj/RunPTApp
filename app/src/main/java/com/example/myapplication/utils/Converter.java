@@ -45,4 +45,11 @@ public class Converter {
         return secondsToMS(paceSeconds);
     }
 
+    public static String millisToHMS(long millis) {
+        long hours = millis / 3_600_000;
+        long remaining = millis % 3_600_000;
+        long minutes = remaining / 60_000;
+        long seconds = (remaining % 60_000) / 1_000;
+        return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+    }
 }

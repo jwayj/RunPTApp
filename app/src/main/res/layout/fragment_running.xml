@@ -23,9 +23,10 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/circle_button"
         android:fontFamily="@font/gmarketmedium"
+        android:textStyle="bold"
         android:text="시 작"
         android:textSize="30sp"
-        android:textColor="@android:color/white"
+        android:textColor="#FAFAFA"
         android:gravity="center"/>
 
     <WebView

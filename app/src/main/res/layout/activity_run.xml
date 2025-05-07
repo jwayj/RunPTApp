@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
 
     <!-- (1) 상단바 -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/light_blue"
+        android:background="@drawable/gradient_toolbar"
         android:gravity="center_vertical"
         app:titleMarginTop="10dp"
         app:titleMarginBottom="0dp"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="#FFFFFF"
+        android:background="#FAFAFA"
         android:gravity="center">
 
         <!-- 네비게이션 아이콘들 -->
@@ -142,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="vertical"
-            android:background="#FFF"
+            android:background="#FAFAFA"
             android:elevation="4dp"
             android:padding="16dp"
             android:layout_alignParentBottom="true">
@@ -207,7 +208,7 @@
                         android:id="@+id/tvStatPace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10’22"
+                        android:text="0.00분/km"
                     android:textSize="24sp"
                     android:fontFamily="@font/gmarketlight"
                     android:layout_marginTop="4dp"/>
@@ -238,8 +239,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="100dp">
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp">
 
                 <!-- 일시정지/재생 토글 버튼 -->
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -248,9 +249,9 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:backgroundTint="#7BCFFA"
-                    android:padding="16dp"
                     android:src="@drawable/ic_pause"
                     android:background="@drawable/circle_button"
+                    android:padding="8dp"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
                     android:contentDescription="일시정지" />
@@ -263,6 +264,7 @@
                     android:layout_height="100dp"
                     android:drawableTop="@drawable/ic_stop"
                     android:background="@drawable/circle_button"
+                    android:padding="8dp"
                     android:scaleType="centerInside"
                     android:adjustViewBounds="true"
                     android:backgroundTint="#7BCFFA"/>

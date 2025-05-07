@@ -3,18 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:background="#FAFAFA"
     tools:context=".ui.activities.Login">
+
+    <!-- 스플래시 배경 이미지 -->
+    <ImageView
+        android:id="@+id/splashBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mainloading" />
+
+    <!-- 로고 (0.5초 뒤 등장) -->
+    <ImageView
+        android:id="@+id/splashLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        android:visibility="invisible" />
 
 
     <LinearLayout
+        android:id="@+id/loginContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="30dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/logintext"
@@ -22,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:text="로그인"
+            android:fontFamily="@font/gmarketmedium"
             android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="40dp"
@@ -58,8 +79,9 @@
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
             android:text="로그인"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:fontFamily="@font/gmarketmedium"
+            android:textColor="#fafafa"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -70,8 +92,9 @@
             android:layout_gravity="center"
             android:background="@drawable/lightbluebox"
             android:text="회원가입"
-            android:textColor="@color/white"
-            android:textSize="16sp"
+            android:fontFamily="@font/gmarketmedium"
+            android:textColor="#fafafa"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -82,8 +105,9 @@
             android:layout_gravity="center"
             android:background="@color/white"
             android:text="건너뛰기"
+            android:fontFamily="@font/gmarketmedium"
             android:textColor="@color/light_blue_600"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
