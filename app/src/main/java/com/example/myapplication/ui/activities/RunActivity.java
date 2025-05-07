@@ -66,7 +66,7 @@ public class RunActivity extends AppCompatActivity {
         ws.setLoadWithOverviewMode(true);
 
         runWebView.setWebViewClient(new WebViewClient());
-        runWebView.loadUrl("http://192.168.123.5:4567/maponly.html");
+        runWebView.loadUrl("https://8df0-110-11-97-50.ngrok-free.app/maponly.html");
 
         // ── 타이머 세팅 ──
         tvStatTime   = findViewById(R.id.tvStatTime);
