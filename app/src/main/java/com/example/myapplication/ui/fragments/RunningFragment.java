@@ -3,6 +3,7 @@ package com.example.myapplication.ui.fragments;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class RunningFragment extends Fragment {
     private RelativeLayout subBaseView;
     private Button btnLoadMap;
     private int counter = 10;
+
+    private String geoJsonId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -141,6 +144,7 @@ public class RunningFragment extends Fragment {
         subBaseView.setVisibility(View.GONE);
     }
     private void setupWebView() {
+        WebSettings settings = webView.getSettings();
         // WebView 설정
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
@@ -156,12 +160,20 @@ public class RunningFragment extends Fragment {
         webView.getSettings().setDatabaseEnabled(true);    // 데이터베이스 지원 추가
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
 
+        // ← 이 라인 추가: HTML의 AndroidBridge.setGeoJsonId(...) 호출을 받습니다.
+        webView.addJavascriptInterface(new JSBridge(), "AndroidBridge");
+
+        webView.setWebChromeClient(new HelloWebChromeClient());
+        webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl("https://9387-115-161-96-106.ngrok-free.app/");
+
         webView.addJavascriptInterface(new Object() {
             @JavascriptInterface
             public void startNativeRun() {
                 // UI 스레드에서 RunActivity 실행
                 requireActivity().runOnUiThread(() -> {
                     Intent intent = new Intent(getContext(), RunActivity.class);
+                    intent.putExtra("GEOJSON_ID", geoJsonId);
                     startActivity(intent);
                 });
             }
@@ -177,8 +189,29 @@ public class RunningFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient());
 //        webView.loadUrl("http://10.0.2.2:4567");
 
-        webView.loadUrl("https://9387-115-161-96-106.ngrok-free.app/");
+        webView.loadUrl("https://7e6f-115-161-96-106.ngrok-free.app/");
 
     }
+
+    /** HTML → Android 브릿지 **/
+    private class JSBridge {
+        /** meta.json 에서 읽어온 geoJsonId 를 여기로 전달받습니다 */
+        @JavascriptInterface
+        public void setGeoJsonId(String id) {
+            geoJsonId = id;
+            Log.d("RunningFragment", "JSBridge.setGeoJsonId() 호출, id = " + geoJsonId);
+        }
+
+        /** “러닝 시작” 버튼 클릭 시 호출되어 RunActivity 로 넘깁니다 */
+        @JavascriptInterface
+        public void onStartRun() {
+            requireActivity().runOnUiThread(() -> {
+                Intent intent = new Intent(getContext(), RunActivity.class);
+                intent.putExtra("GEOJSON_ID", geoJsonId);
+                startActivity(intent);
+            });
+        }
+    }
+
 
 }

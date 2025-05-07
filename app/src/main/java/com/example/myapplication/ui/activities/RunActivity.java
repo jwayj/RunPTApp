@@ -53,11 +53,17 @@ public class RunActivity extends AppCompatActivity {
     private boolean isPaused = false;
 
     private DisMeasurement disMeasurement;
+    //geojson파일 ID
+    private String geoJsonId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
+
+        // WebViewActivity → Intent 로 넘어온 ID
+        geoJsonId = getIntent().getStringExtra("GEOJSON_ID");
+        Log.d("RunActivity", "geoJsonId = " + geoJsonId);
 
         // ── 툴바 설정 ──
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
@@ -86,7 +92,7 @@ public class RunActivity extends AppCompatActivity {
         ws.setUseWideViewPort(true);
         ws.setLoadWithOverviewMode(true);
         runWebView.setWebViewClient(new WebViewClient());
-        runWebView.loadUrl("https://8df0-110-11-97-50.ngrok-free.app/maponly.html");
+        runWebView.loadUrl("https://7e6f-115-161-96-106.ngrok-free.app/maponly.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);
@@ -149,6 +155,7 @@ public class RunActivity extends AppCompatActivity {
             runData.put("durationMillis", SystemClock.elapsedRealtime() - startTimeMillis);
             runData.put("paceMinPerKm", (SystemClock.elapsedRealtime() - startTimeMillis)/disMeasurement.getDisplayDistanceKm());
             runData.put("elevationGain", disMeasurement.getTotalElevationGain());
+            runData.put("geojsonID",geoJsonId);
 
             FirebaseFirestore.getInstance()
                     .collection("users")

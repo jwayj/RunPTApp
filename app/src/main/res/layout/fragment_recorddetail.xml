@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FAFAFA">
 
-
     <!-- (2) 본문: 스크롤 가능한 영역 -->
     <ScrollView
         android:id="@+id/scrollView"
@@ -17,7 +16,7 @@
             android:orientation="vertical"
             android:padding="16dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"> <!-- wrap_content 로 변경 -->
 
             <TextView
                 android:id="@+id/tvDate"
@@ -144,6 +143,13 @@
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
+
+            <!-- 웹뷰: 러닝 코스 정보/요약 표시 -->
+            <WebView
+                android:id="@+id/webviewDetail"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="16dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
