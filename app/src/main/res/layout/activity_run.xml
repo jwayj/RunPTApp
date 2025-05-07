@@ -24,106 +24,10 @@
     <WebView
         android:id="@+id/runWebView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@id/toolbar"
-        android:layout_above="@id/btnStartRun" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar" />
 
-    <!-- 러닝 시작 버튼 -->
-    <Button
-        android:id="@+id/btnStartRun"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_above="@id/bottom_navigation"
-        android:text="🏃‍♂️ 러닝 시작"
-        android:textSize="18sp"
-        android:background="@color/light_blue"
-        android:textColor="#FFFFFF"
-        android:padding="12dp" />
 
-    <!-- 하단 네비게이션 -->
-    <LinearLayout
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:background="#FAFAFA"
-        android:gravity="center">
-
-        <!-- 네비게이션 아이콘들 -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:id="@+id/ic_challenge_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_challenge" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#CCCCCC" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:id="@+id/nav_running_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_running" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#CCCCCC" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:id="@+id/nav_record_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_record" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#CCCCCC" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="8dp">
-            <ImageView
-                android:id="@+id/nav_mypage_icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_mypage" />
-        </LinearLayout>
-
-    </LinearLayout>
     <FrameLayout
         android:id="@+id/stats_overlay"
         android:layout_width="match_parent"
