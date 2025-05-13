@@ -92,7 +92,7 @@ public class RunActivity extends AppCompatActivity {
         ws.setUseWideViewPort(true);
         ws.setLoadWithOverviewMode(true);
         runWebView.setWebViewClient(new WebViewClient());
-        runWebView.loadUrl("https://7e6f-115-161-96-106.ngrok-free.app/maponly.html");
+        runWebView.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/maponly.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);

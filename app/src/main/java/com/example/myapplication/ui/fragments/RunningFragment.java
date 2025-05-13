@@ -163,10 +163,6 @@ public class RunningFragment extends Fragment {
         // ← 이 라인 추가: HTML의 AndroidBridge.setGeoJsonId(...) 호출을 받습니다.
         webView.addJavascriptInterface(new JSBridge(), "AndroidBridge");
 
-        webView.setWebChromeClient(new HelloWebChromeClient());
-        webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl("https://9387-115-161-96-106.ngrok-free.app/");
-
         webView.addJavascriptInterface(new Object() {
             @JavascriptInterface
             public void startNativeRun() {
@@ -189,7 +185,7 @@ public class RunningFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient());
 //        webView.loadUrl("http://10.0.2.2:4567");
 
-        webView.loadUrl("https://7e6f-115-161-96-106.ngrok-free.app/");
+        webView.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/");
 
     }
 

@@ -47,7 +47,7 @@ public class FeedbackActivity extends AppCompatActivity {
 
         webviewFeedback.setWebViewClient(new WebViewClient());
         webviewFeedback.setWebChromeClient(new WebChromeClient());
-        webviewFeedback.loadUrl("http://192.168.123.5:4567/map.html");
+        webviewFeedback.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/map.html");
 
         // ── ② 날짜 표시 ──
         TextView tvDate = findViewById(R.id.tvDate);
