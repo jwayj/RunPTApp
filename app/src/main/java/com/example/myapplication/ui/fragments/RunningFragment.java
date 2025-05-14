@@ -25,6 +25,8 @@ import android.content.Intent;
 
 import android.app.AlertDialog;
 import android.webkit.JsResult;
+import android.webkit.GeolocationPermissions;
+
 
 public class RunningFragment extends Fragment {
     private WebView webView;
@@ -162,6 +164,9 @@ public class RunningFragment extends Fragment {
         webView.getSettings().setDefaultTextEncodingName("utf-8");
         webView.getSettings().setDatabaseEnabled(true);    // 데이터베이스 지원 추가
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setGeolocationEnabled(true);
+
+        settings.setGeolocationDatabasePath(getContext().getFilesDir().getPath());
 
         // ← 이 라인 추가: HTML의 AndroidBridge.setGeoJsonId(...) 호출을 받습니다.
         webView.addJavascriptInterface(new JSBridge(), "AndroidBridge");
@@ -184,7 +189,7 @@ public class RunningFragment extends Fragment {
         }
 
 
-        webView.setWebChromeClient(new WebChromeClient() {
+        webView.setWebChromeClient(new CustomWebChromeClient() {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
                 new AlertDialog.Builder(view.getContext())
@@ -223,6 +228,20 @@ public class RunningFragment extends Fragment {
             });
         }
     }
-
-
+    private class CustomWebChromeClient extends WebChromeClient {
+        @Override
+        public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+            // 위치 권한 요청 다이얼로그 표시
+            new AlertDialog.Builder(getContext())
+                    .setTitle("위치 정보 요청")
+                    .setMessage(origin + "에서 위치 정보를 사용하려고 합니다.")
+                    .setPositiveButton("허용", (dialog, which) -> {
+                        callback.invoke(origin, true, false);  // 권한 허용
+                    })
+                    .setNegativeButton("거부", (dialog, which) -> {
+                        callback.invoke(origin, false, false); // 권한 거부
+                    })
+                    .show();
+        }
+    }
 }
