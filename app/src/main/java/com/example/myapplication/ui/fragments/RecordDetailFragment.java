@@ -65,7 +65,7 @@ public class RecordDetailFragment extends Fragment {
         setupMapWebView();
 
         // 3) HTML 파일 로드
-        mapWebView.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/mapfromfirebase.html");
+        mapWebView.loadUrl("https://e730-115-161-96-106.ngrok-free.app/mapfromfirebase.html");
 
         // 4) Firestore 인스턴스
         db = FirebaseFirestore.getInstance();

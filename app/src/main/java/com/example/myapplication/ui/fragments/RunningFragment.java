@@ -205,7 +205,7 @@ public class RunningFragment extends Fragment {
         webView.setWebViewClient(new WebViewClient());
 //        webView.loadUrl("http://10.0.2.2:4567");
 
-        webView.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/");
+        webView.loadUrl("https://e730-115-161-96-106.ngrok-free.app/");
 
     }
 

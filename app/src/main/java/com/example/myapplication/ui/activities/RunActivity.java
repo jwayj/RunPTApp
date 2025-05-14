@@ -109,7 +109,7 @@ public class RunActivity extends AppCompatActivity {
                 callback.invoke(origin, true, false);
             }
         });
-        runWebView.loadUrl("https://a8a2-110-11-97-50.ngrok-free.app/maponly.html");
+        runWebView.loadUrl("https://e730-115-161-96-106.ngrok-free.app/maponly.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);
@@ -166,6 +166,9 @@ public class RunActivity extends AppCompatActivity {
             if (disMeasurement != null) disMeasurement.stop();
             // Firestore에 러닝 기록 저장
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            DocumentReference userRef = FirebaseFirestore.getInstance()
+                    .collection("users")
+                    .document(uid);
             Map<String, Object> runData = new HashMap<>();
             runData.put("timestamp", FieldValue.serverTimestamp());
             runData.put("distanceKm", disMeasurement.getDisplayDistanceKm());
@@ -183,6 +186,13 @@ public class RunActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("RunActivity", "Run saved: " + documentReference.getId());
+                            userRef.update(
+                                    "totalDistance", FieldValue.increment(disMeasurement.getDisplayDistanceKm()),
+                                    "totalElevation", FieldValue.increment(disMeasurement.getTotalElevationGain()),
+                                    "totalCount",     FieldValue.increment(1)
+                            )
+                            .addOnSuccessListener(aVoid -> Log.d("RunActivity", "Totals updated"))
+                            .addOnFailureListener(e -> Log.e("RunActivity", "Totals update failed", e));
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

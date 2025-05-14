@@ -1,6 +1,9 @@
 package com.example.myapplication.ui.fragments;
 
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,10 @@ import androidx.annotation.Nullable;
 
 import com.example.myapplication.R;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class BadgeFragment extends Fragment {
 
@@ -29,6 +36,8 @@ public class BadgeFragment extends Fragment {
     private View mView;
     private Context mContext;
 
+    private FirebaseFirestore db;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -41,6 +50,131 @@ public class BadgeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_badge, container, false);
+
+        // 4) Firestore 인스턴스
+        db = FirebaseFirestore.getInstance();
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        db.collection("users")
+                .document(uid)
+                .get()
+                .addOnSuccessListener(doc -> {
+                    if (doc.exists()) {
+                        long   count     = doc.getLong("totalCount");
+                        double distance  = doc.getDouble("totalDistance");
+                        double elevation = doc.getDouble("totalElevation");
+
+                        if(count==0){
+                            ImageView iv = view.findViewById(R.id.badge_image_1);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+
+                        }
+
+                        if(count<5){
+                            ImageView iv = view.findViewById(R.id.badge_image_2);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(count<28){
+                            ImageView iv = view.findViewById(R.id.badge_image_3);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(distance<50){
+                            ImageView iv = view.findViewById(R.id.badge_image_4);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(distance<100){
+                            ImageView iv = view.findViewById(R.id.badge_image_5);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(distance<200){
+                            ImageView iv = view.findViewById(R.id.badge_image_6);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(distance<500){
+                            ImageView iv = view.findViewById(R.id.badge_image_7);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(count<30){
+                            ImageView iv = view.findViewById(R.id.badge_image_8);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(count<50){
+                            ImageView iv = view.findViewById(R.id.badge_image_9);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(count<100){
+                            ImageView iv = view.findViewById(R.id.badge_image_10);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(count<200){
+                            ImageView iv = view.findViewById(R.id.badge_image_11);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(elevation<500){
+                            ImageView iv = view.findViewById(R.id.badge_image_12);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(elevation<1000){
+                            ImageView iv = view.findViewById(R.id.badge_image_13);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(elevation<2000){
+                            ImageView iv = view.findViewById(R.id.badge_image_14);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+                        if(elevation<5000){
+                            ImageView iv = view.findViewById(R.id.badge_image_15);
+                            ColorMatrix cm = new ColorMatrix();
+                            cm.setSaturation(0f);  // 채도 0으로 → 흑백
+                            iv.setColorFilter(new ColorMatrixColorFilter(cm));
+                        }
+
+
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("RunActivity", "유저 정보 불러오기 실패", e);
+                });
 
         // 제목 설정
         TextView badgeTitle = view.findViewById(R.id.badge_title);
