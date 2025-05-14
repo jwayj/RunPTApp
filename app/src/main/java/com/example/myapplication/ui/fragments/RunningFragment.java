@@ -23,6 +23,9 @@ import com.example.myapplication.ui.activities.RunActivity;
 import android.webkit.JavascriptInterface;
 import android.content.Intent;
 
+import android.app.AlertDialog;
+import android.webkit.JsResult;
+
 public class RunningFragment extends Fragment {
     private WebView webView;
     private Button startButton;
@@ -181,7 +184,19 @@ public class RunningFragment extends Fragment {
         }
 
 
-        webView.setWebChromeClient(new HelloWebChromeClient());
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                new AlertDialog.Builder(view.getContext())
+                        .setTitle("알림")
+                        .setMessage(message)
+                        .setPositiveButton(android.R.string.ok, (dialog, which) -> result.confirm())
+                        .show();
+                return true; // 직접 처리했음을 알림
+            }
+        });
+
+
         webView.setWebViewClient(new WebViewClient());
 //        webView.loadUrl("http://10.0.2.2:4567");
 
