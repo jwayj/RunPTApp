@@ -33,6 +33,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.webkit.GeolocationPermissions;
+import androidx.core.content.ContextCompat; // ContextCompat
+import android.webkit.WebChromeClient;      // WebChromeClient
+
 
 public class RunActivity extends AppCompatActivity {
 
@@ -60,6 +64,10 @@ public class RunActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_run);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        }
 
         // WebViewActivity → Intent 로 넘어온 ID
         geoJsonId = getIntent().getStringExtra("GEOJSON_ID");
@@ -92,7 +100,16 @@ public class RunActivity extends AppCompatActivity {
         ws.setUseWideViewPort(true);
         ws.setLoadWithOverviewMode(true);
         runWebView.setWebViewClient(new WebViewClient());
-        runWebView.loadUrl("https://87d7-115-161-96-106.ngrok-free.app/maponly.html");
+        ws.setGeolocationEnabled(true);
+
+        runWebView.setWebViewClient(new WebViewClient());
+        runWebView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+                callback.invoke(origin, true, false);
+            }
+        });
+        runWebView.loadUrl("https://a8a2-110-11-97-50.ngrok-free.app/maponly.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);
