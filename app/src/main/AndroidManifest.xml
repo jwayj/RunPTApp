@@ -79,7 +79,9 @@
             android:name=".ui.activities.MainActivity"
             android:exported="false" />
         <activity android:name=".ui.activities.RunActivity" />
+        <activity android:name=".ui.activities.RunActivity2" />
         <activity android:name=".ui.activities.FeedbackActivity" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

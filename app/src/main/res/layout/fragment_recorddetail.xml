@@ -159,6 +159,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
                 android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnRunThisRoute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lightbluebox"
+                android:text="이 경로로 러닝"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/gmarketmedium"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textSize="22sp"/>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

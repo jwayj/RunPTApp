@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -38,7 +39,7 @@ import androidx.core.content.ContextCompat; // ContextCompat
 import android.webkit.WebChromeClient;      // WebChromeClient
 
 
-public class RunActivity extends AppCompatActivity {
+public class RunActivity2 extends AppCompatActivity {
 
     private static final int LOCATION_PERMISSION_REQUEST = 100;
 
@@ -66,7 +67,7 @@ public class RunActivity extends AppCompatActivity {
         setContentView(R.layout.activity_run);
 
 
-        // WebViewActivity → Intent 로 넘어온 ID
+        // RecordDetailFragment → Intent 로 넘어온 ID
         geoJsonId = getIntent().getStringExtra("GEOJSON_ID");
         Log.d("RunActivity", "geoJsonId = " + geoJsonId);
 
@@ -99,6 +100,8 @@ public class RunActivity extends AppCompatActivity {
         runWebView.setWebViewClient(new WebViewClient());
         ws.setGeolocationEnabled(true);
 
+        runWebView.addJavascriptInterface(new JSBridge(), "AndroidBridge");
+
         runWebView.setWebViewClient(new WebViewClient());
         runWebView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -106,7 +109,7 @@ public class RunActivity extends AppCompatActivity {
                 callback.invoke(origin, true, false);
             }
         });
-        runWebView.loadUrl("https://3ad5-115-161-96-106.ngrok-free.app/maponly.html");
+        runWebView.loadUrl("https://3ad5-115-161-96-106.ngrok-free.app/maponly2.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);
@@ -184,12 +187,12 @@ public class RunActivity extends AppCompatActivity {
                         public void onSuccess(DocumentReference documentReference) {
                             Log.d("RunActivity", "Run saved: " + documentReference.getId());
                             userRef.update(
-                                    "totalDistance", FieldValue.increment(disMeasurement.getDisplayDistanceKm()),
-                                    "totalElevation", FieldValue.increment(disMeasurement.getTotalElevationGain()),
-                                    "totalCount",     FieldValue.increment(1)
-                            )
-                            .addOnSuccessListener(aVoid -> Log.d("RunActivity", "Totals updated"))
-                            .addOnFailureListener(e -> Log.e("RunActivity", "Totals update failed", e));
+                                            "totalDistance", FieldValue.increment(disMeasurement.getDisplayDistanceKm()),
+                                            "totalElevation", FieldValue.increment(disMeasurement.getTotalElevationGain()),
+                                            "totalCount",     FieldValue.increment(1)
+                                    )
+                                    .addOnSuccessListener(aVoid -> Log.d("RunActivity", "Totals updated"))
+                                    .addOnFailureListener(e -> Log.e("RunActivity", "Totals update failed", e));
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -198,11 +201,6 @@ public class RunActivity extends AppCompatActivity {
                             Log.e("RunActivity", "Error saving run", e);
                         }
                     });
-            Intent i = new Intent(this, FeedbackActivity.class);
-            i.putExtra("elapsedTime", SystemClock.elapsedRealtime() - startTimeMillis);
-            i.putExtra("distance", disMeasurement != null ? disMeasurement.getDisplayDistanceKm() : 0f);
-            i.putExtra("elevationGain", disMeasurement != null ? disMeasurement.getTotalElevationGain() : 0.0);
-            startActivity(i);
             finish();
         });
     }
@@ -253,6 +251,14 @@ public class RunActivity extends AppCompatActivity {
             initMeasurement();
         } else {
             tvDistance.setText("위치 권한 필요");
+        }
+    }
+
+    // JS 인터페이스 클래스
+    private class JSBridge {
+        @JavascriptInterface
+        public String getGeoJsonId() {
+            return geoJsonId;
         }
     }
 }

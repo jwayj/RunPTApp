@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.fragments;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
@@ -10,11 +11,13 @@ import android.webkit.WebViewClient;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
+import com.example.myapplication.ui.activities.RunActivity2;
 import com.example.myapplication.utils.Converter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -65,7 +68,7 @@ public class RecordDetailFragment extends Fragment {
         setupMapWebView();
 
         // 3) HTML 파일 로드
-        mapWebView.loadUrl("https://f7c3-222-110-177-88.ngrok-free.app/mapfromfirebase.html");
+        mapWebView.loadUrl("https://3ad5-115-161-96-106.ngrok-free.app/mapfromfirebase.html");
 
         // 4) Firestore 인스턴스
         db = FirebaseFirestore.getInstance();
@@ -76,6 +79,13 @@ public class RecordDetailFragment extends Fragment {
             recordId = args.getString(ARG_RECORD_ID);
             loadDetail(recordId);
         }
+
+        Button btnRun = view.findViewById(R.id.btnRunThisRoute);
+        btnRun.setOnClickListener(v -> {
+            Intent intent = new Intent(requireActivity(), RunActivity2.class);
+            intent.putExtra("GEOJSON_ID",geoJsonId);
+            startActivity(intent);
+        });
 
         return view;
     }
