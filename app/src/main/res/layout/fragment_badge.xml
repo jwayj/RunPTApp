@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="내 배지"
-            android:layout_marginTop="70dp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/gmarketlight"
             android:textStyle="bold"
             android:textSize="30sp"
@@ -45,17 +46,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="첫 러닝"
+                android:textColor="@android:color/black"
                 android:fontFamily="@font/gmarketmedium"
                 android:textSize="20sp"
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"/>
     <GridLayout
         android:id="@+id/badge_grid1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnCount="3"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="6dp">
 
         <!-- Badge Items -->
         <!-- Repeat this block for each badge -->
@@ -153,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnCount="3"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -266,7 +268,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnCount="3"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -379,7 +381,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:columnCount="3"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="10dp">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

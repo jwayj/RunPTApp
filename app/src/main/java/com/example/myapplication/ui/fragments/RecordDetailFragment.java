@@ -65,7 +65,7 @@ public class RecordDetailFragment extends Fragment {
         setupMapWebView();
 
         // 3) HTML 파일 로드
-        mapWebView.loadUrl("https://e730-115-161-96-106.ngrok-free.app/mapfromfirebase.html");
+        mapWebView.loadUrl("https://f7c3-222-110-177-88.ngrok-free.app/mapfromfirebase.html");
 
         // 4) Firestore 인스턴스
         db = FirebaseFirestore.getInstance();
@@ -141,7 +141,7 @@ public class RecordDetailFragment extends Fragment {
         String dateStr  = new SimpleDateFormat("yyyy년 MM월 dd일 EEE", Locale.getDefault())
                 .format(new Date(ts));
         String timeStr  = Converter.millisToHMS(duration);
-        String distStr  = String.format(Locale.getDefault(), "%.2f km", dist);
+        String distStr  = String.format(Locale.getDefault(), "%.2f", dist);
         String paceStr  = Converter.calculatePace(duration/1000, pace);
         String elevStr  = String.format(Locale.getDefault(), "%.0f m", elev);
 

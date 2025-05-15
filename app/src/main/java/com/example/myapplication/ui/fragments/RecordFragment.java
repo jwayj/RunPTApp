@@ -122,6 +122,7 @@ public class RecordFragment extends Fragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy년 MM월 dd일 EEE", Locale.getDefault());
 
+        buttonContainer.setWeightSum(PAGE_SIZE);
         for (int i = start; i < end; i++) {
             RecordData rec = records.get(i);
             View item = inflater.inflate(R.layout.custom_button, buttonContainer, false);
@@ -141,6 +142,14 @@ public class RecordFragment extends Fragment {
             tvTime.setText(timeStr);
             tvDistance.setText(distStr);
             tvPace.setText(paceStr);
+
+            // 6. LayoutParams 로 weight 지정
+            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,  // 너비는 match_parent
+                    0,                                    // 높이는 0으로
+                    1f                                    // weight=1f
+            );
+            item.setLayoutParams(lp);
 
             // 상세 프래그먼트로 전환
             item.setOnClickListener(v -> {

@@ -109,7 +109,7 @@ public class RunActivity extends AppCompatActivity {
                 callback.invoke(origin, true, false);
             }
         });
-        runWebView.loadUrl("https://e730-115-161-96-106.ngrok-free.app/maponly.html");
+        runWebView.loadUrl("https://f7c3-222-110-177-88.ngrok-free.app/maponly.html");
 
         // ── 시간, 거리, 페이스 TextView 설정 ──
         tvStatTime = findViewById(R.id.tvStatTime);
